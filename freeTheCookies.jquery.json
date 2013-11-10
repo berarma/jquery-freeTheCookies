@@ -1,0 +1,27 @@
+{
+	"name": "freeTheCookies",
+	"title": "jQuery Free The Cookies",
+	"description": "A simple jQuery plugin that handles getting user consent for using cookies.",
+	"keywords": [
+		"cookies",
+		"consent"
+	],
+	"version": "0.1.0",
+	"author": {
+		"name": "Bernat Arlandis",
+		"url": "https://github.com/berarma"
+	},
+	"licenses": [
+		{
+			"type": "GPLv2",
+			"url": "https://github.com/berarma/jquery-freeTheCookies/LICENSE.txt"
+		}
+	],
+	"bugs": "https://github.com/berarma/jquery-freeTheCookies/issues",
+	"homepage": "https://github.com/berarma/jquery-freeTheCookies",
+	"docs": "https://github.com/berarma/jquery-freeTheCookies",
+	"dependencies": {
+		"jquery": ">=1.2"
+	}
+}
+
