@@ -1,7 +1,7 @@
 jquery-freeTheCookies
 =====================
 
-This is a simple but highly customizable plugin that puts a banner warnint userw about the use of cookies in your site. It will ask for explicit or implicit consent from the user without offering the option to reject cookies. This is useful when disabling cookies is not wanted or can be troublesome for your site. User consent is saved in a configurable cookie. You're given full control over the banner appearance and the interpretation of implicit consent.
+This is a simple but highly customizable plugin that puts a banner in your site warning the user about the use of cookies. It will ask for explicit or implicit consent from the user without offering the option to reject cookies. This is useful when disabling cookies is not wanted or can be troublesome for your site. User consent is saved in a configurable cookie. You're given full control over the banner appearance and the interpretation of implicit consent.
 
 It will let you run Javascript code in the browser when the user gives explicit or implicit consent allowing to run the code that sets cookies.
 
