@@ -8,15 +8,16 @@ It will let you run Javascript code in the browser when the user gives explicit 
 Requirements
 ------------
 
-  + jQuery 1.2+
-  + jquery.cookie
+  + jQuery 1.2+ (https://github.com/jquery/jquery)
+  + jquery-cookie (https://github.com/carhartl/jquery-cookie)
 
 How to use it
 -------------
 
-Load the plugin in your web page after jQuery:
+Load the plugin in your web page after jQuery and jquery-cookie:
 ```
 <script src="js/jquery.js"></script>
+<script src="js/jquery.cookie.js"></script>
 <script src="js/jquery.freeTheCookies.js"></script>
 ```
 
