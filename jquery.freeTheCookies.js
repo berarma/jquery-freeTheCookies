@@ -21,21 +21,27 @@
 			path: "/"
 		},
 		speed: 300,
+		position: "append",
+		parentBlock: "body",
 		blockHtml: "This site needs <em>cookies</em> to offer its services. By using our services you're accepting the use we make of <em>cookies</em>. <a href='/cookie_policy'>More information</a>.",
 		blockAttrs: {
 		},
 		blockCss: {
+			position: "fixed",
+			left: 0,
+			right: 0,
+			top: 0,
 			padding: "0.5em",
 			border: "1px solid #ccc",
 			borderStyle: "solid none",
 			textAlign: "center",
 			font: "normal 0.9em/1.3 sans-serif",
-			backgroundColor: "#ffe8a0",
+			backgroundColor: "rgba(240, 232, 160, 0.5)",
 			color: "#333",
 		},
 		closeHtml: "X",
 		closeAttrs: {
-			title: 'Close',
+			title: 'Close'
 		},
 		closeCss: {
 			"float": "right",
@@ -92,7 +98,12 @@
 			$block.attr( settings.blockAttrs ).html( settings.blockHtml ).css( settings.blockCss );
 			$close.attr( settings.closeAttrs ).html( settings.closeHtml ).css( settings.closeCss );
 			$close.prependTo( $block );
-			$block.prependTo( "body" );
+			var $parent = $( settings.parentBlock );
+			if ( settings.position == 'append' ) {
+				$block.appendTo( $parent );
+			} else {
+				$block.prependTo( $parent );
+			}
 			$block.hide();
 			$block.slideDown( settings.speed, function() {
 

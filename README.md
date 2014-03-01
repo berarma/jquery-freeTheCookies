@@ -28,9 +28,14 @@ jQuery.freeTheCookies( options );
 
 The first time you call the plugin you can pass an options object as argument (optional), you can see the defaults in the code. The options that can be set are:
 
-  + cookieName: (string) The name of the cookie to save user consent.
+  + cookieName: (string) The name of the cookie to save user consent. Default:
+    'cookie-consent'.
   + cookieOptions: (array) jquery.cookie options.
   + speed: (int) Animation speed (ms)
+  + position: (string) It may be 'append' or 'prepend', appends or prepends the
+    block. Default: 'append'.
+  + parentBlock: (string) jQuery selector for the parent block where the banner
+    will be appended/prepended. Default: 'body'.
   + blockHtml: (string) Banner block content.
   + blockAttrs: (array) Banner block HTML attributes.
   + blockCss: (array) Banner block CSS.
