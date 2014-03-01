@@ -31,13 +31,14 @@
 			left: 0,
 			right: 0,
 			top: 0,
-			padding: "0.5em",
+			padding: "1em",
 			border: "1px solid #ccc",
 			borderStyle: "solid none",
 			textAlign: "center",
 			font: "normal 0.9em/1.3 sans-serif",
-			backgroundColor: "rgba(240, 232, 160, 0.5)",
+			backgroundColor: "rgba(240, 232, 160, 0.95)",
 			color: "#333",
+			zIndex: 9999
 		},
 		closeHtml: "X",
 		closeAttrs: {
