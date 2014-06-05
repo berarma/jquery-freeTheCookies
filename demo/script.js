@@ -1,24 +1,23 @@
 (function($) {
+
+	// Setup with custom text, style and callback function
+	$.freeTheCookies({
+		text: "This site needs <em>cookies</em> to offer its services. By using our services you're accepting the use we make of <em>cookies</em>. <a href='cookie_policy.html'>More information</a>. <button id='explicit-consent'>Allow</button>",
+		style: {
+			textAlign: "left"
+		},
+		onConsent: function() {
+			console.log( "Got consent." );
+		},
+		disabled: window.cookieBannerDisabled
+	});
+	// Example for additional callback function
+	$.freeTheCookies( function() {
+		console.log( "Yes, got it." );
+	});
+
 	$(function() {
-		$.freeTheCookies({
-			blockHtml: "This site needs <em>cookies</em> to offer its services. By using our services you're accepting the use we make of <em>cookies</em>. <a href='cookie_policy.html'>More information</a>. <button id='explicit-consent'>Allow</button>",
-			onUserAction: function( e ) {
-				var $target = $( e.target );
-				if ( $( "body" ).hasClass( "cookie-neutral" ) && e.type === "scroll" ) {
-					return false;
-				}
-				if ( $target.hasClass( "cookie-neutral" ) || $target.parents( ".cookie-neutral" ).length > 0 ) {
-					return false;
-				}
-				return true;
-			},
-			onConsent: function() {
-				console.log( "Got consent." );
-			}
-		});
-		$.freeTheCookies( function() {
-			console.log( "Yes, got it." );
-		});
+		// Button actions to manage cookies with more example calls
 		$( "#remove-consent" ).bind( "click", function() {
 			$.removeCookie( "cookie-consent", { path: "/" });
 			location.reload();
@@ -37,4 +36,5 @@
 			$.freeTheCookies.now();
 		});
 	});
+
 })(jQuery);

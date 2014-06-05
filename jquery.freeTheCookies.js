@@ -15,22 +15,21 @@
 	$block = $( "<div/>" ),
 	$close = $( "<div/>" ),
 	defaults =  {
+		text: "This site needs <em>cookies</em> to offer its services. By using our services you're accepting the use we make of <em>cookies</em>. <a href='/cookie_policy'>More information</a>.",
+		style: {},
+		disabled: false,
 		cookieName: "cookie-consent",
 		cookieOptions: {
 			expires: 365,
 			path: "/"
 		},
 		speed: 300,
-		position: "append",
-		parentBlock: "body",
-		blockHtml: "This site needs <em>cookies</em> to offer its services. By using our services you're accepting the use we make of <em>cookies</em>. <a href='/cookie_policy'>More information</a>.",
-		blockAttrs: {
-		},
+		blockAttrs: {},
 		blockCss: {
 			position: "fixed",
-			left: 0,
-			right: 0,
-			top: 0,
+			left: "0",
+			right: "0",
+			top: "0",
 			padding: "1em",
 			border: "1px solid #ccc",
 			borderStyle: "solid none",
@@ -38,7 +37,7 @@
 			font: "normal 0.9em/1.3 sans-serif",
 			backgroundColor: "rgba(240, 232, 160, 0.95)",
 			color: "#333",
-			zIndex: 9999
+			zIndex: "9999"
 		},
 		closeHtml: "X",
 		closeAttrs: {
@@ -50,6 +49,8 @@
 			fontWeight: "bold",
 			cursor: "pointer"
 		},
+		parentBlock: "body",
+		position: "append",
 		onUserAction: function( e ) {
 			return true;
 		}
@@ -75,31 +76,32 @@
 			settings = $.extend( {}, defaults, options );
 		}
 
+		if ( settings.disabled ) {
+			initialized = true;
+			return false;
+		}
+
 		if ( callback ) {
 			$events.bind( "onConsent", callback);
 		}
 
 		if ( $.cookie( settings.cookieName ) ) {
-			if ( !initialized ) {
-				$events.triggerHandler( "onConsent" );
-			} else {
-				if ( callback ) {
-					callback();
-				}
-			}
-		}
-
-		if ( $.cookie( settings.cookieName ) ) {
+			$events.triggerHandler( "onConsent" );
 			initialized = true;
 			return true;
 		}
 
-		if ( !initialized ) {
+		if ( initialized ) {
+			return false;
+		}
 
-			$block.attr( settings.blockAttrs ).html( settings.blockHtml ).css( settings.blockCss );
-			$close.attr( settings.closeAttrs ).html( settings.closeHtml ).css( settings.closeCss );
-			$close.prependTo( $block );
+		$block.attr( settings.blockAttrs ).html( settings.text ).css( $.extend( {}, settings.blockCss, settings.style ) );
+		$close.attr( settings.closeAttrs ).html( settings.closeHtml ).css( settings.closeCss );
+		$close.prependTo( $block );
+
+		$(function() {
 			var $parent = $( settings.parentBlock );
+
 			if ( settings.position == 'append' ) {
 				$block.appendTo( $parent );
 			} else {
@@ -131,8 +133,7 @@
 				});
 
 			});
-
-		}
+		});
 
 		initialized = true;
 
