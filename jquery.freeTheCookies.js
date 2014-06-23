@@ -6,8 +6,8 @@
 // Licensed under the GPLv2 license.
 //
 
-"use strict";
 (function($, window, undefined) {
+	"use strict";
 
 	var
 	$window = $( window ),
