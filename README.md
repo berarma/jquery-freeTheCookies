@@ -29,7 +29,7 @@ Initialize the plugin:
 jQuery.freeTheCookies( options );
 ```
 
-The first time you call the plugin you can pass an options object as argument
+The first time being invoked an options object can be used as argument
 (optional). The default values can be seen in the source code.
 
 The following options are available:
@@ -45,49 +45,53 @@ The following options are available:
 
 You can further customize the plugin with the following advanced options:
 
-  + cookieName: (string) The name of the cookie used to remember user consent.
-    Default: 'cookie-consent'.
-  + cookieOptions: (array) jquery.cookie options.
-  + speed: (int) Animation speed (ms)
+  + blockAttrs: (array) Attributes used for the banner block.
+  + blockCss: (array) CSS for the banner block.
+  + closeHtml: (string) Content for the close block,
+  + closeAttrs: (array) Attributes for the close block.
+  + closeCss: (array) CSS for the close block.
   + position: (string) It may be 'append' or 'prepend', appends or prepends the
     block. Default: 'append' (recommended for SEO).
   + parentBlock: (string) jQuery selector for the parent block where the banner
     will be appended/prepended. Default: 'body'.
-  + blockAttrs: (array) Banner block HTML attributes.
-  + blockCss: (array) Banner block CSS.
-  + closeHtml: (string) Close button block content,
-  + closeAttrs: (array) Close button block HTML attributes.
-  + closeCss: (array) Close button block CSS.
+  + speed: (int) Animation speed (ms)
+  + cookieName: (string) The name of the cookie used to remember user consent.
+    Default: 'cookie-consent'.
+  + cookieOptions: (array) jquery.cookie options.
   + onUserAction: (function) Called when a user event occurs. It receives an
     event object that can be used to decide whether this action means consent
     or not. Return true when it means consent. The default callback returns
     true for all user actions captured.
 
-You can call __$.freeTheCookies()__ anytime to check for consent, it will
-return true or false. You can also pass a callback function as the only
-argument and it will be called when consent is given. This can be done as many
-times as needed.
-
-If consent is already given the callback function will be
-called immediately.
+__$.freeTheCookies()__ can be called at anytime to check for consent, it will
+return true when consent already given or false when still not.
 
 ```
 if ( $.freeTheCookies() ) {
   ...
 }
+```
+
+It can also be called passing a callback function as the only argument and it
+will be called when consent is given. This can be done as many times as needed
+and all callbacks functions will be called.
+
+```
 $.freeTheCookies(function() {
   ...
 });
 ```
 
-You can call __$.freeTheCookies.now()__ to force the plugin to take consent.
+If consent is already given the callback function will be called immediately.
 
-In case you want to disable implicit consent you could return always false in
-the __onUserAction__ callback then call __$.freeTheCookies.now()__ when
-explicit consent happens..
+__$.freeTheCookies.now()__ triggers explicit consent when called.
+
+In case you want to disable implicit consent the __onUserAction__ should return
+always true and then call __$.freeTheCookies.now()__ when explicit consent
+happens..
 
 Scroll is detected when the banner goes out of sight and it will be handled as
-a user action, so the outcome can be handled in the __onUserAction__ callback.
+a user action, so the outcome can be changed in the __onUserAction__ callback.
 
 See __demo/index.html__ for examples.
 
