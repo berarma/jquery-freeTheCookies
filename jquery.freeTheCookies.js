@@ -110,8 +110,6 @@
 			$block.hide();
 			$block.slideDown( settings.speed, function() {
 
-				window.scrollTo( 0, 0 );
-
 				$block.bind( "click", function( e ) {
 					e.stopPropagation();
 				});
