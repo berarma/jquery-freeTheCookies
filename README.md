@@ -1,4 +1,4 @@
-#jquery-freeTheCookies
+# jquery-freeTheCookies
 
 This is a simple but highly customizable plugin that puts a banner in your site
 warning the user about the use of cookies. It will wait for the user's explicit
@@ -10,12 +10,12 @@ user should always consent. User consent is remembered by using a configurable
 cookie.  You're given full control over the banner appearance and the
 interpretation of implicit consent.
 
-##Requirements
+## Requirements
 
   + jQuery 1.2+ (https://github.com/jquery/jquery)
   + jquery-cookie (https://github.com/carhartl/jquery-cookie)
 
-##How to use it
+## How to use it
 
 Load the plugin in your web page after jQuery and jquery-cookie:
 ```
@@ -98,14 +98,14 @@ See __demo/index.html__ for examples.
 Visit the [wiki](https://github.com/berarma/jquery-freeTheCookies/wiki) for
 more information.
 
-##License
+## License
 
 This plugin is licensed under the GPL v2 license. This is a plugin, you're just
 required to share your modifications/fixes/improvements to it. You aren't
 required to relicense your own projects because you're using and/or
 redistributing this plugin with them.
 
-##Disclaimer
+## Disclaimer
 
 There's no warranty of any kind, you're the sole responsible for the use or
 misuse of this plugin. Using this plugin alone isn't enough to make your site
